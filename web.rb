@@ -17,8 +17,6 @@ require 'securerandom'
 
 #Game database
 db = YAML::Store.new('Game.yml')
-bd = YAML::Store.new('banned.yml')
-cn = YAML::Store.new('clans.yml')
 
 #bot token
 token = @config["Token"]
@@ -27,7 +25,7 @@ V = @config["Version"]
 
 #game start
 Telegram::Bot::Client.run(token) do |bot|
-	puts "#{@config["BotName"]} #{V} دايشتغل".on_red
+	puts "#{@config["BotName"]} #{V} on".on_red
 	begin
 		bot.listen do |message|
 			#require bot files
@@ -35,7 +33,6 @@ Telegram::Bot::Client.run(token) do |bot|
 				db.transaction do
 					cn.transaction do
 						eval(File.read("./plugins/self.rb"))
-			        	eval(File.read("./plugins/setting.rb"))
 					end
 				end
 			end
