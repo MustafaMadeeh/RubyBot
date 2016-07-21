@@ -4,7 +4,7 @@ gem install telegram-bot-ruby
 gem install colorize
 gem install json
 ```
-## Configure Telewar
+## Configure 
 Edit config.json
 ```
 "BotName":"Your_bot_name",
