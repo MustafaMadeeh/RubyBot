@@ -25,7 +25,7 @@ V = @config["Version"]
 
 #game start
 Telegram::Bot::Client.run(token) do |bot|
-	puts "#{@config["BotName"]} #{V} on".on_red
+	puts "tofiko".on_red
 	begin
 		bot.listen do |message|
 			#require bot files
