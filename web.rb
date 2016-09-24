@@ -19,12 +19,12 @@ require 'securerandom'
 db = YAML::Store.new('Game.yml')
 bd = YAML::Store.new('band.yml')
 #bot token
-token = @config["Tofiko"]
+token = @config["tofiko"]
 
 V = @config["Version"]
 
 #game start
-Telegram::Bot::Client.run(token) do |bot|
+Telegram::Bot::Client.run(tofiko) do |bot|
 	puts "tofiko".on_red
 	begin
 		bot.listen do |message|
