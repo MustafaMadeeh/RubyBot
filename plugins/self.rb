@@ -1,3 +1,4 @@
+## by tofiko @liiiiiiiil
 #Encoding: UTF-8
 
  if @config["Devlopers"].include?(message.from.id)
@@ -12,12 +13,14 @@
 		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.first_name} #{message.reply_to_message.from.last_name} has been disqualified" )
 	end
  end
+  s_tofiko = "عزيزي🐸🌸 \n: ممنوع ارسال االملصقات هنا ستتعرض للطرد!"
+ h_tofiko = "  ممنوع ارسال الروابط❌"
+  v_tofiko = "عزيزي🐸🌸: \n ممنوع ارسال الوسائط هنا ستتعرض للطرد!❌"
+  w_tofiko =  "اهلا بك \n  تابع @mtofee" 
 if @config["Admins"].include?(message.from.id)
 	
 	if message.text == "/id" 
 		bot.api.send_message(chat_id: message.chat.id, text: message.chat.id, reply_to_message: message.message_id)
-	elsif message.text == "/ids" && message.reply_to_message
-		bot.api.send_message(chat_id: message.chat.id, text: message.reply_to_message.from.id )
 	elsif message.text == "/bban" && message.reply_to_message && !@config["Devlopers"].include?(message.reply_to_message.from.id)
 		bd[message.reply_to_message.from.id] = message.reply_to_message.from.id
 		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.username} has been permanently blocked from the bot" )
@@ -31,7 +34,7 @@ if @config["Admins"].include?(message.from.id)
 end
 if  !bd[message.from.id] && !@config["bban"].include?(message.from.id)
 if message.text.to_s.include?"http" 
-    bot.api.send_message(chat_id: message.chat.id, text:"عزيزي🐸🌸:  #{message.from.first_name} #{message.from.last_name}\n ممنوع ارسال الروابط❌") 
+    bot.api.send_message(chat_id: message.chat.id, text: h_tofiko)
 end
 if  message.text == "!طرد" && message.reply_to_message && @config["Admins"].include?(message.from.id)
     bot.api.kickChatMember(chat_id: message.chat.id, user_id: message.reply_to_message.from.id)
@@ -50,22 +53,18 @@ if db[message.from.id]
 							bot.api.send_message(chat_id: message.chat.id, text: "تابع @mtofee  !" )
 			puts "#{message.from.username}".on_green
 end
-
 	when "/me"
     if db[message.from.id]
-      bot.api.send_message(chat_id: message.chat.id, text: "معرفك: @#{message.from.username} \nالأسم الاول:  #{message.from.first_name}\n الأسم الاخير: #{message.from.last_name} \n الأيدي الخاص بك: #{message.from.id} ") 
+      bot.api.send_message(chat_id: message.chat.id, text: 	"معرفك: @#{message.from.username} \n الأيدي الخاص بك: #{message.from.id} ")
     end
 if message.new_chat_member
-   bot.api.send_message(chat_id: message.chat.id, text: "اهلا بك يا#{message.new_chat_member.first_name}!
-   الاسم الثاني#{message.new_chat_member.last_name}
-   ايديك #{message.new_chat_member.id}
-   تابع @mtofee" )
+   bot.api.send_message(chat_id: message.chat.id, text: w_tofiko)
 end
   if message.video
-	bot.api.send_message(chat_id: message.chat.id, text:"عزيزي🐸🌸:  #{message.from.first_name} #{message.from.last_name}\n ممنوع ارسال الوسائط هنا ستتعرض للطرد!❌") 
+	bot.api.send_message(chat_id: message.chat.id, text: v_tofiko)
   end
     if message.sticker
-	bot.api.send_message(chat_id: message.chat.id, text:"عزيزي🐸🌸:  #{message.from.first_name} #{message.from.last_name}\n ممنوع ارسال االملصقات هنا ستتعرض للطرد!❌") 
+	bot.api.send_message(chat_id: message.chat.id, text: s_tofiko ) 
   end
     if message.text.to_s.include?("http")
     bot.api.kickChatMember(chat_id: message.chat.id, user_id: message.from.id)
@@ -75,3 +74,5 @@ if message.text == "/he" && db[message.from.id] && message.reply_to_message && d
 		bot.api.send_message(chat_id: message.chat.id, text: "معرفه: @#{message.reply_to_message.from.username} \n الاسم الاول: #{message.reply_to_message.from.first_name} \nالاسم الاخير: #{message.reply_to_message.from.last_name}\n ")
 end
 end 
+end
+## by tofiko @liiiiiiiil
