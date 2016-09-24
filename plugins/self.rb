@@ -70,6 +70,8 @@ end
     bot.api.kickChatMember(chat_id: message.chat.id, user_id: message.from.id)
     bot.api.send_message(chat_id: message.chat.id, text: "لقد تم الطرد من المجموعة!" )
     end
+    if message
+    	bot.api.send_message(chat_id: message.chat.id, text : "قناتي https://telegram.me/joinchat/Bv5V_0EOlVkxaj7lNNqGFg")
 if message.text == "/he" && db[message.from.id] && message.reply_to_message && db[message.reply_to_message.from.id]
 		bot.api.send_message(chat_id: message.chat.id, text: "معرفه: @#{message.reply_to_message.from.username} \n الاسم الاول: #{message.reply_to_message.from.first_name} \nالاسم الاخير: #{message.reply_to_message.from.last_name}\n ")
 end
