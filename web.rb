@@ -17,9 +17,9 @@ require 'securerandom'
 
 #Game database
 db = YAML::Store.new('Game.yml')
-
+bd = YAML::Store.new('band.yml')
 #bot token
-token = @config["Token"]
+token = @config["Tofiko"]
 
 V = @config["Version"]
 
@@ -31,9 +31,7 @@ Telegram::Bot::Client.run(token) do |bot|
 			#require bot files
 			bd.transaction do
 				db.transaction do
-					cn.transaction do
 						eval(File.read("./plugins/self.rb"))
-					end
 				end
 			end
 		end
@@ -43,3 +41,4 @@ Telegram::Bot::Client.run(token) do |bot|
 end
 
 #TELEGRAM_BOT_POOL_SIZE=16 ruby bot.rb
+# tofiko
