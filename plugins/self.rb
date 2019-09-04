@@ -1,4 +1,4 @@
-## by tofiko @liiiiiiiil
+## by MustafaMadeeh @iTofiko
 #Encoding: UTF-8
 
  if @config["Devlopers"].include?(message.from.id)
@@ -18,7 +18,7 @@
   v_tofiko = "عزيزي🐸🌸: \n ممنوع ارسال الوسائط هنا ستتعرض للطرد!❌"
   w_tofiko =  "اهلا بك \n  تابع @mtofee" 
 if @config["Admins"].include?(message.from.id)
-	
+	## by MustafaMadeeh @iTofiko
 	if message.text == "/id" 
 		bot.api.send_message(chat_id: message.chat.id, text: message.chat.id, reply_to_message: message.message_id)
 	elsif message.text == "/bban" && message.reply_to_message && !@config["Devlopers"].include?(message.reply_to_message.from.id)
@@ -45,12 +45,12 @@ case message.text
 
   when "/start"
 if db[message.from.id]
-      bot.api.send_message(chat_id: message.chat.id, text: " تابع @mtofee!" )
+      bot.api.send_message(chat_id: message.chat.id, text: " تابع @to3fe!" )
     else
 			db[message.from.id] = {
 				"username"=>message.from.username,
 }
-							bot.api.send_message(chat_id: message.chat.id, text: "تابع @mtofee  !" )
+							bot.api.send_message(chat_id: message.chat.id, text: "تابع @to3fe  !" )
 			puts "#{message.from.username}".on_green
 end
 	when "/me"
@@ -60,6 +60,7 @@ end
 if message.new_chat_member
    bot.api.send_message(chat_id: message.chat.id, text: w_tofiko)
 end
+	## by MustafaMadeeh @iTofiko
   if message.video
 	bot.api.send_message(chat_id: message.chat.id, text: v_tofiko)
   end
@@ -74,4 +75,4 @@ end
 puts "#{message} #{message.from.username}"
 end
 end
-# by tofiko @liiiiiiiil
+## by MustafaMadeeh @iTofiko
