@@ -8,14 +8,14 @@
 		bot.api.send_message(chat_id: message.chat.id, text: "تم التفعيل!" )
 	when "/prom"
 		@config["Admins"].insert(0,message.reply_to_message.from.id)
-		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.first_name} #{message.reply_to_message.from.last_name} has been promoted" )
+		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.first_name} #{message.reply_to_message.from.last_name} تمت ترقيته" )
 	when "/rem"
-		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.first_name} #{message.reply_to_message.from.last_name} has been disqualified" )
+		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.first_name} #{message.reply_to_message.from.last_name} تم استبعاده" )
 	end
  end
-  s_tofiko = "عزيزي🐸🌸 \n: ممنوع ارسال االملصقات هنا ستتعرض للطرد!"
+  s_tofiko = "عزيزي\n: ممنوع ارسال االملصقات هنا ستتعرض للطرد!"
  h_tofiko = "  ممنوع ارسال الروابط❌"
-  v_tofiko = "عزيزي🐸🌸: \n ممنوع ارسال الوسائط هنا ستتعرض للطرد!❌"
+  v_tofiko = "عزيزي: \n ممنوع ارسال الوسائط هنا ستتعرض للطرد!❌"
   w_tofiko =  "اهلا بك \n  تابع @mtofee" 
 if @config["Admins"].include?(message.from.id)
 	## by MustafaMadeeh @iTofiko
@@ -23,10 +23,10 @@ if @config["Admins"].include?(message.from.id)
 		bot.api.send_message(chat_id: message.chat.id, text: message.chat.id, reply_to_message: message.message_id)
 	elsif message.text == "/bban" && message.reply_to_message && !@config["Devlopers"].include?(message.reply_to_message.from.id)
 		bd[message.reply_to_message.from.id] = message.reply_to_message.from.id
-		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.username} has been permanently blocked from the bot" )
+		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.username} تم حظره نهائيًا" )
 	elsif message.text == "/ban" && message.reply_to_message && !@config["Devlopers"].include?(message.reply_to_message.from.id)
 		@config["bban"].insert(0,message.reply_to_message.from.id)
-		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.username} has been blocked from the bot" )
+		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.username} تم الغاء الحظر عنه" )
 	elsif message.text == "/unban" && message.reply_to_message && !@config["Devlopers"].include?(message.reply_to_message.from.id)
 		@config["bban"].delete(message.reply_to_message.from.id)
 		bot.api.send_message(chat_id: message.chat.id, text: "#{message.reply_to_message.from.username} has been unblocked" )
